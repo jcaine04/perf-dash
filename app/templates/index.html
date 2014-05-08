@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Performance Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.timepicker.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}" />
+</head>
+<body>
+<div class="left-column container col-sm-4">
+    <h2 class="page-header">Performance Dashboard</h2>
+    <form role="form" class="form-horizontal">
+        <div class="form-group">
+            <label for="machine-name" class="col-sm-12">Machine Name</label><br>
+            <div class="col-sm-4">
+                <select id="machine-name" class="form-control">
+                    <option></option>
+                    <option>\\mssql1</option>
+                    <option>\\fileserver1</option>
+                    <option>\\appserver1</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="counter" class="col-sm-12">Counter</label>
+            <div class="col-sm-4">
+                <select id="counter"class="form-control">
+                    <option></option>
+                    <option>Physical Disk > Avg Disk sec/Write</option>
+                    <option>Physical Disk > Avg. Disk sec/Read</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4">
+                <p><strong>Instances</strong><br>
+                    <fieldset>
+                        <div class="col-sm-12 checkbox"><input type="checkbox" class="instances" id="select-all"><label for="select-all"> Select All</label></div>
+                        <div class="col-sm-12 checkbox"><input type="checkbox" class="instances" id="instance1"><label for="instance1"> C:</label></div>
+                        <div class="col-sm-12 checkbox"><input type="checkbox" class="instances" id="instance2"><label for="instance2"> D:</label></div>
+                        <div class="col-sm-12 checkbox"><input type="checkbox" class="instances" id="instance3"><label for="instance3"> E:</label></div>
+                        <div class="col-sm-12 checkbox"><input type="checkbox" class="instances" id="instance4"><label for="instance4"> F:</label></div>
+                    </fieldset>
+            </div>
+        </div>
+        <div class="form-group">
+                <div class="col-sm-12"><label for="start-date">Start Date: </label></div>
+                <div class="col-sm-12"><input type="text" class="datepicker" id="start-date"></div>
+                <div class="col-sm-12"><label for="start-time">Start Time: </label></div>
+                <div class="col-sm-12"><input type="text" class="timepicker" id="start-time"></div>
+        </div>
+        <div class="form-group">
+                <div class="col-sm-12"><label for="end-date">End Date: </label></div>
+                <div class="col-sm-12"><input type="text" class="datepicker" id="end-date"></div>
+                <div class="col-sm-12"><label for="end-time">End Time: </label></div>
+                <div class="col-sm-12"><input type="text" class="timepicker" id="end-time"></div>
+                <div class="col-sm-4"><div class="col-sm-12 checkbox"><input type="checkbox" id="live"><label for="live"> Live</label></div></div>
+        </div>
+        <button action="#" class="btn btn-primary btn-default">Run</button>
+        <p></p>
+    </form>
+</div>
+<div class="right-column" id="chart-div" style="width: 750px; height: 1200"></div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.timepicker.min.js')"></script>
+<script src="{{ url_form('static', filename='js/site.js') }}"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+</body>
+</html>
